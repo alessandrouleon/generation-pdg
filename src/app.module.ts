@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { MulterModule } from '@nestjs/platform-express';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PdfGeneratorService } from './pdf-generator.service';
+import { PdfController } from './pdf.controller';
 
 @Module({
   imports: [
@@ -11,7 +13,7 @@ import { AppService } from './app.service';
       },
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, PdfController],
+  providers: [AppService, PdfGeneratorService],
 })
 export class AppModule {}
