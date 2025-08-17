@@ -48,7 +48,7 @@ export class MapService {
           <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
           <style>
             body { margin: 0; }
-            #map { width: 800px; height: 600px; }
+            #map { width: 800px; height: 450px; }
           </style>
         </head>
         <body>
