@@ -2,12 +2,16 @@ import { Injectable } from '@nestjs/common';
 import { chromium } from 'playwright';
 import { dataPoints } from '../dataPoints';
 import { datapointData } from '../datapointData';
+import { ChartService } from './chart.service';
 import { MapService } from './map.service';
 
 @Injectable()
 export class PdfGeneratorService {
 
-  constructor(private readonly mapService: MapService) {}
+  constructor(
+    private readonly mapService: MapService,
+    private readonly chartService: ChartService
+  ) {}
 
   async generatePdf(): Promise<Buffer> {
 
@@ -25,7 +29,7 @@ export class PdfGeneratorService {
           <tr>
             <td>${formattedDate}</td>
             <td>${point.temperature}°C</td>
-            <td>${point.vibration}g</td>
+            <td>${point.vibration ?? 0}g</td>
             <td>${point.moisture}%</td>
           </tr>
         `;
@@ -33,6 +37,7 @@ export class PdfGeneratorService {
       .join('');
 
     // Gera imagem do mapa
+    const chartImageBase64 = await this.chartService.generateChartImage(dataPoints.data);
     const mapImageBase64 = await this.mapService.generateMapImage(dataPoints.data);
 
     const htmlContent = `
@@ -49,6 +54,9 @@ export class PdfGeneratorService {
       </style>
     </head>
     <body>
+    <h3>Gráfico</h3>
+          <img src="${chartImageBase64}" style="width:100%; max-width:800px; max-height:650px; border:1px solid #ccc;"/>
+    
       <h3>Mapa</h3>
       <img src="${mapImageBase64}" style="width:100%; max-width:800px; border:1px solid #ccc;"/>
       <h2>Relatório de Dados</h2>
