@@ -1,10 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { chromium } from 'playwright';
-import { dataPoints } from './dataPoints';
+import { dataPoints } from '../dataPoints';
+import { datapointData } from '../datapointData';
+import { MapService } from './map.service';
 
 @Injectable()
 export class PdfGeneratorService {
+
+  constructor(private readonly mapService: MapService) {}
+
   async generatePdf(): Promise<Buffer> {
+
+    const dataPointData = datapointData;
 
     // Constrói as linhas da tabela dinamicamente
     const tableRows = dataPoints.data
@@ -25,6 +32,9 @@ export class PdfGeneratorService {
       })
       .join('');
 
+    // Gera imagem do mapa
+    const mapImageBase64 = await this.mapService.generateMapImage(dataPoints.data);
+
     const htmlContent = `
   <html>
     <head>
@@ -39,6 +49,8 @@ export class PdfGeneratorService {
       </style>
     </head>
     <body>
+      <h3>Mapa</h3>
+      <img src="${mapImageBase64}" style="width:100%; max-width:800px; border:1px solid #ccc;"/>
       <h2>Relatório de Dados</h2>
       <table>
         <thead>
@@ -56,7 +68,6 @@ export class PdfGeneratorService {
     </body>
   </html>
 `;
-
 
     // Lança o navegador headless
     const browser = await chromium.launch();

@@ -1,6 +1,6 @@
 import { Controller, Get, Res } from '@nestjs/common';
 import type { Response } from 'express';
-import { PdfGeneratorService } from './pdf-generator.service';
+import { PdfGeneratorService } from '../service/pdf-generator.service';
 
 @Controller('pdf')
 export class PdfController {
