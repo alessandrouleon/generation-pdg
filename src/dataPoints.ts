@@ -1,41 +1,1033 @@
 interface Geo {
-    lat: number;
-    lng: number;
-    type: string;
-  }
-  
-  interface Probes {
-    temperature?: number;
-    moisture?: number;
-    vibration?: number | null;
-    luminosity?: number | null;
-  }
-  interface DataPoint {
-    temperature: number;
-    moisture: number;
-    vibration?: number | null;
-    luminosity?: number | null;
-    geo?: Geo;
-    timestamp: number;
-    probes?: Probes[] | Record<string, Probes>; 
-  }
-  
-  interface DataResponse {
-    data: DataPoint[];
-    page?: number;
-    size?: number;
-    total?: number;
-    totalPages?: number;
-    hasNextPage?: boolean;
-    hasPreviousPage?: boolean;
-  }
-  export let dataPoints: DataResponse = {
-    data: [{"temperature":28.5,"moisture":71.2,"geo":{"lat":-18.936934,"lng":-48.220434,"type":"lbs"},"timestamp":1750892338000,"probes":{}},{"temperature":28.4,"moisture":71.1,"geo":{"lat":-12.936966,"lng":-40.220434,"type":"lbs"},"timestamp":1750892278000,"probes":{"0":{"temperature":5.1,"moisture":33.3}}},{"temperature":28.4,"moisture":71.4,"geo":{"lat":-12.936934,"lng":-28.220434,"type":"lbs"},"timestamp":1750892218000,"probes":{"0":{"temperature":3.1,"moisture":34.4},"1":{"temperature":4,"moisture":40}}},{"temperature":28.4,"moisture":71.3,"timestamp":1750892158000,"probes":{}},{"temperature":28.4,"moisture":71,"timestamp":1750892098000,"probes":{}},{"temperature":28.4,"moisture":71.1,"timestamp":1750892038000,"probes":{}},{"temperature":28.4,"moisture":71,"timestamp":1750891978000,"probes":{}},{"temperature":28.4,"moisture":71.1,"timestamp":1750891918000,"probes":{}},{"temperature":28.4,"moisture":71,"timestamp":1750891858000,"probes":{}},{"temperature":28.4,"moisture":70.8,"timestamp":1750891798000,"probes":{}},{"temperature":28.4,"moisture":70.8,"timestamp":1750891738000,"probes":{}},{"temperature":28.4,"moisture":70.8,"timestamp":1750891678000,"probes":{}},{"temperature":28.5,"moisture":70.7,"timestamp":1750891618000,"probes":{}},{"temperature":28.5,"moisture":70.4,"timestamp":1750891558000,"probes":{}},{"temperature":28.5,"moisture":70.4,"timestamp":1750891498000,"probes":{}},{"temperature":28.5,"moisture":70.2,"timestamp":1750891438000,"probes":{}},{"temperature":28.5,"moisture":70.2,"timestamp":1750891378000,"probes":{}},{"temperature":28.6,"moisture":69.9,"timestamp":1750891318000,"probes":{}},{"temperature":28.5,"moisture":69.9,"timestamp":1750891258000,"probes":{}},{"temperature":28.6,"moisture":70,"timestamp":1750891198000,"probes":{}},{"temperature":28.6,"moisture":69.9,"timestamp":1750891138000,"probes":{}},{"temperature":28.6,"moisture":70,"timestamp":1750891078000,"probes":{}},{"temperature":28.6,"moisture":70,"timestamp":1750891018000,"probes":{}},{"temperature":28.6,"moisture":69.8,"timestamp":1750890958000,"probes":{}},{"temperature":28.5,"moisture":69.9,"timestamp":1750890898000,"probes":{}},{"temperature":28.5,"moisture":69.8,"timestamp":1750890838000,"probes":{}},{"temperature":28.6,"moisture":70.1,"timestamp":1750890778000,"probes":{}},{"temperature":28.6,"moisture":69.6,"timestamp":1750890718000,"probes":{}},{"temperature":28.6,"moisture":69.5,"timestamp":1750890658000,"probes":{}},{"temperature":28.6,"moisture":69.4,"timestamp":1750890598000,"probes":{}},{"temperature":28.6,"moisture":69.5,"timestamp":1750890538000,"probes":{}},{"temperature":28.6,"moisture":69.4,"timestamp":1750890478000,"probes":{}},{"temperature":28.6,"moisture":69.3,"timestamp":1750890418000,"probes":{}},{"temperature":28.6,"moisture":69.3,"timestamp":1750890358000,"probes":{}},{"temperature":28.6,"moisture":69.3,"timestamp":1750890298000,"probes":{}},{"temperature":28.6,"moisture":69.3,"timestamp":1750890238000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750890178000,"probes":{}},{"temperature":28.6,"moisture":69.1,"timestamp":1750890118000,"probes":{}},{"temperature":28.6,"moisture":69.1,"timestamp":1750890058000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889998000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889938000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889878000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889818000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889758000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889698000,"probes":{}},{"temperature":28.5,"moisture":69.1,"timestamp":1750889638000,"probes":{}},{"temperature":28.5,"moisture":69.1,"timestamp":1750889578000,"probes":{}},{"temperature":28.5,"moisture":69.2,"timestamp":1750889518000,"probes":{}},{"temperature":28.5,"moisture":69.2,"timestamp":1750889458000,"probes":{}},{"temperature":28.5,"moisture":69.3,"timestamp":1750889398000,"probes":{}},{"temperature":28.5,"moisture":69.1,"timestamp":1750889338000,"probes":{}},{"temperature":28.5,"moisture":69.1,"timestamp":1750889278000,"probes":{}},{"temperature":28.6,"moisture":69.2,"timestamp":1750889218000,"probes":{}},{"temperature":28.6,"moisture":69.5,"timestamp":1750889158000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750889098000,"probes":{}},{"temperature":28.6,"moisture":68.9,"timestamp":1750889038000,"probes":{}},{"temperature":28.6,"moisture":68.6,"timestamp":1750888978000,"probes":{}},{"temperature":28.6,"moisture":68.5,"timestamp":1750888918000,"probes":{}},{"temperature":28.6,"moisture":68.4,"timestamp":1750888858000,"probes":{}},{"temperature":28.6,"moisture":68.4,"timestamp":1750888798000,"probes":{}},{"temperature":28.6,"moisture":68.4,"timestamp":1750888738000,"probes":{}},{"temperature":28.6,"moisture":68.3,"timestamp":1750888678000,"probes":{}},{"temperature":28.6,"moisture":68.5,"timestamp":1750888618000,"probes":{}},{"temperature":28.6,"moisture":68.6,"timestamp":1750888558000,"probes":{}},{"temperature":28.6,"moisture":68.7,"timestamp":1750888498000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750888438000,"probes":{}},{"temperature":28.6,"moisture":69,"timestamp":1750888378000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750888318000,"probes":{}},{"temperature":28.6,"moisture":68.9,"timestamp":1750888258000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750888198000,"probes":{}},{"temperature":28.7,"moisture":69,"timestamp":1750888138000,"probes":{}},{"temperature":28.7,"moisture":68.8,"timestamp":1750888078000,"probes":{}},{"temperature":28.6,"moisture":68.7,"timestamp":1750888018000,"probes":{}},{"temperature":28.6,"moisture":68.6,"timestamp":1750887958000,"probes":{}},{"temperature":28.6,"moisture":68.6,"timestamp":1750887898000,"probes":{}},{"temperature":28.6,"moisture":68.6,"timestamp":1750887838000,"probes":{}},{"temperature":28.6,"moisture":68.7,"timestamp":1750887778000,"probes":{}},{"temperature":28.6,"moisture":68.9,"timestamp":1750887718000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750887658000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750887598000,"probes":{}},{"temperature":28.6,"moisture":69.1,"timestamp":1750887538000,"probes":{}},{"temperature":28.6,"moisture":69,"timestamp":1750887478000,"probes":{}},{"temperature":28.6,"moisture":68.8,"timestamp":1750887418000,"probes":{}},{"temperature":28.6,"moisture":68.9,"timestamp":1750887358000,"probes":{}},{"temperature":28.6,"moisture":69.1,"timestamp":1750887298000,"probes":{}},{"temperature":28.6,"moisture":68.9,"timestamp":1750887238000,"probes":{}},{"temperature":28.6,"moisture":69,"timestamp":1750887178000,"probes":{}},{"temperature":28.7,"moisture":68.8,"timestamp":1750887118000,"probes":{}},{"temperature":28.7,"moisture":68.4,"timestamp":1750887058000,"probes":{}},{"temperature":28.8,"moisture":68.3,"timestamp":1750886998000,"probes":{}},{"temperature":28.8,"moisture":68.2,"timestamp":1750886938000,"probes":{}},{"temperature":28.8,"moisture":67.8,"timestamp":1750886878000,"probes":{}},{"temperature":28.9,"moisture":68,"timestamp":1750886818000,"probes":{}},{"temperature":28.9,"moisture":67.7,"timestamp":1750886758000,"probes":{}},{"temperature":28.9,"moisture":67.4,"timestamp":1750886698000,"probes":{}},{"temperature":28.9,"moisture":67.2,"timestamp":1750886638000,"probes":{}},{"temperature":29,"moisture":67.3,"timestamp":1750886578000,"probes":{}},{"temperature":29,"moisture":67,"timestamp":1750886518000,"probes":{}},{"temperature":29,"moisture":67,"timestamp":1750886458000,"probes":{}},{"temperature":29,"moisture":66.9,"timestamp":1750886398000,"probes":{}},{"temperature":29,"moisture":66.9,"timestamp":1750886338000,"probes":{}},{"temperature":29.1,"moisture":66.9,"timestamp":1750886278000,"probes":{}},{"temperature":29.1,"moisture":66.9,"timestamp":1750886218000,"probes":{}},{"temperature":29.2,"moisture":66.8,"timestamp":1750886158000,"probes":{}},{"temperature":29.2,"moisture":66.7,"timestamp":1750886098000,"probes":{}},{"temperature":29.3,"moisture":66.6,"timestamp":1750886038000,"probes":{}},{"temperature":29.3,"moisture":66.5,"timestamp":1750885978000,"probes":{}},{"temperature":29.3,"moisture":66.3,"timestamp":1750885918000,"probes":{}},{"temperature":29.4,"moisture":66.2,"timestamp":1750885858000,"probes":{}},{"temperature":29.5,"moisture":66.2,"timestamp":1750885798000,"probes":{}},{"temperature":29.5,"moisture":66,"timestamp":1750885738000,"probes":{}},{"temperature":29.6,"moisture":65.9,"timestamp":1750885678000,"probes":{}},{"temperature":29.7,"moisture":65.7,"timestamp":1750885618000,"probes":{}},{"temperature":29.8,"moisture":65.6,"timestamp":1750885558000,"probes":{}},{"temperature":30,"moisture":65.4,"timestamp":1750885498000,"probes":{}},{"temperature":30.1,"moisture":65.2,"timestamp":1750885438000,"probes":{}},{"temperature":30.2,"moisture":64.9,"timestamp":1750885378000,"probes":{}},{"temperature":30.4,"moisture":64.7,"timestamp":1750885318000,"probes":{}},{"temperature":30.6,"moisture":64.4,"timestamp":1750885258000,"probes":{}},{"temperature":30.8,"moisture":64.2,"timestamp":1750885198000,"probes":{}},{"temperature":31.1,"moisture":64.2,"timestamp":1750885138000,"probes":{}},{"temperature":31.1,"moisture":65,"timestamp":1750885078000,"probes":{}},{"temperature":31.1,"moisture":64.6,"timestamp":1750885018000,"probes":{"0":{"temperature":8,"moisture":32.8,"luminosity":null,"vibration":null}}},{"temperature":31,"moisture":64.6,"timestamp":1750884958000,"probes":{"0":{"temperature":8.1,"moisture":33.4,"luminosity":null,"vibration":null}}},{"temperature":31,"moisture":64.7,"timestamp":1750884898000,"probes":{"0":{"temperature":8.1,"moisture":34,"luminosity":null,"vibration":null}}},{"temperature":31,"moisture":64.7,"timestamp":1750884838000,"probes":{"0":{"temperature":8.1,"moisture":34.6,"luminosity":null,"vibration":null}}},{"temperature":31,"moisture":64.9,"timestamp":1750884778000,"probes":{"0":{"temperature":8.1,"moisture":35.2,"luminosity":null,"vibration":null}}},{"temperature":30.9,"moisture":64.9,"timestamp":1750884718000,"probes":{"0":{"temperature":8.1,"moisture":35.9,"luminosity":null,"vibration":null}}},{"temperature":30.9,"moisture":65,"timestamp":1750884658000,"probes":{"0":{"temperature":8.2,"moisture":36.7,"luminosity":null,"vibration":null}}},{"temperature":30.9,"moisture":65.2,"timestamp":1750884598000,"probes":{"0":{"temperature":8.2,"moisture":38.1,"luminosity":null,"vibration":null}}},{"temperature":30.8,"moisture":65.2,"timestamp":1750884538000,"probes":{"0":{"temperature":8.2,"moisture":39.2,"luminosity":null,"vibration":null}}},{"temperature":30.8,"moisture":65.3,"timestamp":1750884478000,"probes":{"0":{"temperature":8.3,"moisture":40.7,"luminosity":null,"vibration":null}}},{"temperature":30.8,"moisture":65.5,"timestamp":1750884418000,"probes":{"0":{"temperature":8.3,"moisture":42.1,"luminosity":null,"vibration":null}}},{"temperature":30.7,"moisture":65.6,"timestamp":1750884358000,"probes":{"0":{"temperature":8.3,"moisture":43.4,"luminosity":null,"vibration":null}}},{"temperature":30.7,"moisture":65.7,"timestamp":1750884298000,"probes":{"0":{"temperature":8.3,"moisture":45.5,"luminosity":null,"vibration":null}}},{"temperature":30.6,"moisture":65.9,"timestamp":1750884238000,"probes":{"0":{"temperature":8.4,"moisture":47.5,"luminosity":null,"vibration":null}}},{"temperature":30.6,"moisture":66,"timestamp":1750884178000,"probes":{"0":{"temperature":8.5,"moisture":49.9,"luminosity":null,"vibration":null}}},{"temperature":30.5,"moisture":66.1,"timestamp":1750884118000,"probes":{"0":{"temperature":8.5,"moisture":53,"luminosity":null,"vibration":null}}},{"temperature":30.4,"moisture":66.2,"timestamp":1750884058000,"probes":{"0":{"temperature":8.6,"moisture":55.3,"luminosity":null,"vibration":null}}},{"temperature":30.4,"moisture":66.4,"timestamp":1750883998000,"probes":{"0":{"temperature":8.8,"moisture":58.6,"luminosity":null,"vibration":null}}},{"temperature":30.3,"moisture":66.6,"timestamp":1750883938000,"probes":{"0":{"temperature":9,"moisture":61.7,"luminosity":null,"vibration":null}}},{"temperature":30.3,"moisture":66.7,"timestamp":1750883878000,"probes":{"0":{"temperature":9.3,"moisture":63.9,"luminosity":null,"vibration":null}}},{"temperature":30.2,"moisture":66.8,"timestamp":1750883818000,"probes":{"0":{"temperature":9.8,"moisture":68.1,"luminosity":null,"vibration":null}}},{"temperature":30.1,"moisture":67.1,"timestamp":1750883758000,"probes":{"0":{"temperature":10.5,"moisture":70,"luminosity":null,"vibration":null}}},{"temperature":30.1,"moisture":67.3,"timestamp":1750883698000,"probes":{"0":{"temperature":11.4,"moisture":69.5,"luminosity":null,"vibration":null}}},{"temperature":30,"moisture":67.6,"timestamp":1750883638000,"probes":{"0":{"temperature":12.9,"moisture":66.3,"luminosity":null,"vibration":null}}},{"temperature":29.9,"moisture":68.1,"timestamp":1750883578000,"probes":{"0":{"temperature":15.5,"moisture":59.8,"luminosity":null,"vibration":null}}},{"temperature":29.8,"moisture":69,"timestamp":1750883518000,"probes":{"0":{"temperature":20.2,"moisture":49.6,"luminosity":null,"vibration":null}}},{"temperature":29.6,"moisture":72.1,"timestamp":1750883458000,"probes":{"0":{"temperature":28.1,"moisture":49.7,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":77.3,"timestamp":1750883398000,"probes":{}},{"temperature":28.8,"moisture":68.2,"timestamp":1750883338000,"probes":{}},{"temperature":28.8,"moisture":68.2,"timestamp":1750883278000,"probes":{}},{"temperature":28.8,"moisture":68.2,"timestamp":1750883218000,"probes":{}},{"temperature":28.9,"moisture":68.3,"timestamp":1750883158000,"probes":{}},{"temperature":28.8,"moisture":68.1,"timestamp":1750883098000,"probes":{}},{"temperature":28.9,"moisture":68.2,"timestamp":1750883038000,"probes":{}},{"temperature":28.9,"moisture":68.5,"timestamp":1750882978000,"probes":{}},{"temperature":28.9,"moisture":69.3,"timestamp":1750882918000,"probes":{}},{"temperature":28.8,"moisture":69.1,"timestamp":1750882858000,"probes":{}},{"temperature":28.8,"moisture":67.8,"timestamp":1750882798000,"probes":{"0":{"temperature":-12.8,"moisture":71.9,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.8,"timestamp":1750882738000,"probes":{"0":{"temperature":-12.7,"moisture":71.9,"luminosity":null,"vibration":null}}},{"temperature":28.8,"moisture":67.7,"timestamp":1750882678000,"probes":{"0":{"temperature":-12.6,"moisture":71.9,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.7,"timestamp":1750882618000,"probes":{"0":{"temperature":-12.6,"moisture":72,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.7,"timestamp":1750882558000,"probes":{"0":{"temperature":-12.5,"moisture":72,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.6,"timestamp":1750882498000,"probes":{"0":{"temperature":-12.4,"moisture":71.9,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.4,"timestamp":1750882438000,"probes":{"0":{"temperature":-12.3,"moisture":71.9,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.2,"timestamp":1750882378000,"probes":{"0":{"temperature":-12.2,"moisture":71.5,"luminosity":null,"vibration":null}}},{"temperature":29,"moisture":67.5,"timestamp":1750882318000,"probes":{"0":{"temperature":-12.1,"moisture":70.7,"luminosity":null,"vibration":null}}},{"temperature":29,"moisture":67.4,"timestamp":1750882258000,"probes":{"0":{"temperature":-12,"moisture":70.2,"luminosity":null,"vibration":null}}},{"temperature":29.1,"moisture":67.2,"timestamp":1750882198000,"probes":{"0":{"temperature":-11.8,"moisture":69.1,"luminosity":null,"vibration":null}}},{"temperature":29.1,"moisture":67.1,"timestamp":1750882138000,"probes":{"0":{"temperature":-11.4,"moisture":67.1,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":67,"timestamp":1750882078000,"probes":{"0":{"temperature":-10.5,"moisture":63.2,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":67,"timestamp":1750882018000,"probes":{"0":{"temperature":-8.4,"moisture":55.1,"luminosity":null,"vibration":null}}},{"temperature":29.3,"moisture":67.1,"timestamp":1750881958000,"probes":{"0":{"temperature":-2.3,"moisture":40.2,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":68.2,"timestamp":1750881898000,"probes":{"0":{"temperature":14.4,"moisture":25.2,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":68.9,"timestamp":1750881838000,"probes":{"0":{"temperature":29.1,"moisture":69.5,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.8,"timestamp":1750881778000,"probes":{}},{"temperature":28.9,"moisture":67.9,"timestamp":1750881718000,"probes":{}},{"temperature":28.9,"moisture":67.9,"timestamp":1750881658000,"probes":{}},{"temperature":28.9,"moisture":67.9,"timestamp":1750881598000,"probes":{}},{"temperature":28.9,"moisture":67.8,"timestamp":1750881538000,"probes":{}},{"temperature":28.9,"moisture":67.8,"timestamp":1750881478000,"probes":{}},{"temperature":28.9,"moisture":67.8,"timestamp":1750881418000,"probes":{}},{"temperature":29,"moisture":67.9,"timestamp":1750881358000,"probes":{}},{"temperature":28.9,"moisture":67.9,"timestamp":1750881298000,"probes":{}},{"temperature":29,"moisture":67.9,"timestamp":1750881238000,"probes":{}},{"temperature":29,"moisture":67.9,"timestamp":1750881178000,"probes":{}},{"temperature":29,"moisture":68,"timestamp":1750881118000,"probes":{}},{"temperature":29,"moisture":68.1,"timestamp":1750881058000,"probes":{}},{"temperature":29,"moisture":68.1,"timestamp":1750880998000,"probes":{}},{"temperature":29,"moisture":68.1,"timestamp":1750880938000,"probes":{}},{"temperature":29,"moisture":68.1,"timestamp":1750880878000,"probes":{}},{"temperature":29,"moisture":68.2,"timestamp":1750880818000,"probes":{}},{"temperature":29,"moisture":68.2,"timestamp":1750880758000,"probes":{}},{"temperature":29,"moisture":68.2,"timestamp":1750880698000,"probes":{}},{"temperature":28.9,"moisture":68.7,"timestamp":1750880638000,"probes":{}},{"temperature":28.8,"moisture":69.4,"timestamp":1750880578000,"probes":{}},{"temperature":28.8,"moisture":68,"timestamp":1750880518000,"probes":{"0":{"temperature":-9.2,"moisture":81.2,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.9,"timestamp":1750880458000,"probes":{"0":{"temperature":-8.9,"moisture":81.2,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.8,"timestamp":1750880398000,"probes":{"0":{"temperature":-8.6,"moisture":81.1,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.8,"timestamp":1750880338000,"probes":{"0":{"temperature":-8.3,"moisture":81.1,"luminosity":null,"vibration":null}}},{"temperature":28.9,"moisture":67.6,"timestamp":1750880278000,"probes":{"0":{"temperature":-7.9,"moisture":81,"luminosity":null,"vibration":null}}},{"temperature":29,"moisture":67.6,"timestamp":1750880218000,"probes":{"0":{"temperature":-7.5,"moisture":80.8,"luminosity":null,"vibration":null}}},{"temperature":29,"moisture":67.4,"timestamp":1750880158000,"probes":{"0":{"temperature":-7.1,"moisture":80.6,"luminosity":null,"vibration":null}}},{"temperature":29,"moisture":67.3,"timestamp":1750880098000,"probes":{"0":{"temperature":-6.7,"moisture":80.4,"luminosity":null,"vibration":null}}},{"temperature":29.1,"moisture":67.3,"timestamp":1750880038000,"probes":{"0":{"temperature":-6.2,"moisture":80,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":67.2,"timestamp":1750879978000,"probes":{"0":{"temperature":-5.7,"moisture":79.4,"luminosity":null,"vibration":null}}},{"temperature":29.2,"moisture":67,"timestamp":1750879918000,"probes":{"0":{"temperature":-5.2,"moisture":78.6,"luminosity":null,"vibration":null}}},{"temperature":29.3,"moisture":66.9,"timestamp":1750879858000,"probes":{"0":{"temperature":-4.6,"moisture":77.6,"luminosity":null,"vibration":null}}},{"temperature":29.4,"moisture":66.8,"timestamp":1750879798000,"probes":{"0":{"temperature":-3.8,"moisture":75.8,"luminosity":null,"vibration":null},"1":{"temperature":4.8,"moisture":45.8,"luminosity":null,"vibration":null}}},{"temperature":29.5,"moisture":66.8,"timestamp":1750879738000,"probes":{"0":{"temperature":-2.8,"moisture":72.4,"luminosity":null,"vibration":null},"1":{"temperature":-1.8,"moisture":52.4,"luminosity":null,"vibration":null}}},{"temperature":29.6,"moisture":66.6,"timestamp":1750879678000,"probes":{"0":{"temperature":-0.9,"moisture":67.5,"luminosity":null,"vibration":null}}},{"temperature":29.8,"moisture":66.3,"timestamp":1750879618000,"probes":{"0":{"temperature":2.6,"moisture":59.8,"luminosity":null,"vibration":null}}},{"temperature":29.9,"moisture":66.3,"timestamp":1750879558000,"probes":{"0":{"temperature":8.1,"moisture":46.8,"luminosity":null,"vibration":null}}},{"temperature":30,"moisture":66.5,"timestamp":1750879498000,"probes":{"0":{"temperature":12.8,"moisture":41.4,"luminosity":null,"vibration":null}}}],
-       "page":1,
-       "size":500,
-       "total":215,
-       "totalPages":1,
-       "hasNextPage":false,
-       "hasPreviousPage":false
+  lat: number;
+  lng: number;
+  type: string;
 }
-  
+
+interface Probes {
+  temperature?: number;
+  moisture?: number;
+  vibration?: number | null;
+  luminosity?: number | null;
+}
+export interface DataPoint {
+  temperature: number;
+  moisture: number;
+  vibration?: number | null;
+  luminosity?: number | null;
+  geo?: Geo;
+  timestamp: number;
+  probes?: Probes[] | Record<string, Probes>;
+}
+
+interface DataResponse {
+  data: DataPoint[];
+  page?: number;
+  size?: number;
+  total?: number;
+  totalPages?: number;
+  hasNextPage?: boolean;
+  hasPreviousPage?: boolean;
+}
+export const dataPoints: DataResponse = {
+  data: [
+    {
+      temperature: 28.5,
+      moisture: 71.2,
+      geo: { lat: -18.936934, lng: -48.220434, type: 'lbs' },
+      timestamp: 1750892338000,
+      probes: {},
+    },
+    {
+      temperature: 28.4,
+      moisture: 71.1,
+      geo: { lat: -12.936966, lng: -40.220434, type: 'lbs' },
+      timestamp: 1750892278000,
+      probes: { '0': { temperature: 5.1, moisture: 33.3 } },
+    },
+    {
+      temperature: 28.4,
+      moisture: 71.4,
+      geo: { lat: -12.936934, lng: -28.220434, type: 'lbs' },
+      timestamp: 1750892218000,
+      probes: {
+        '0': { temperature: 3.1, moisture: 34.4 },
+        '1': { temperature: 4, moisture: 40 },
+      },
+    },
+    { temperature: 28.4, moisture: 71.3, timestamp: 1750892158000, probes: {} },
+    { temperature: 28.4, moisture: 71, timestamp: 1750892098000, probes: {} },
+    { temperature: 28.4, moisture: 71.1, timestamp: 1750892038000, probes: {} },
+    { temperature: 28.4, moisture: 71, timestamp: 1750891978000, probes: {} },
+    { temperature: 28.4, moisture: 71.1, timestamp: 1750891918000, probes: {} },
+    { temperature: 28.4, moisture: 71, timestamp: 1750891858000, probes: {} },
+    { temperature: 28.4, moisture: 70.8, timestamp: 1750891798000, probes: {} },
+    { temperature: 28.4, moisture: 70.8, timestamp: 1750891738000, probes: {} },
+    { temperature: 28.4, moisture: 70.8, timestamp: 1750891678000, probes: {} },
+    { temperature: 28.5, moisture: 70.7, timestamp: 1750891618000, probes: {} },
+    { temperature: 28.5, moisture: 70.4, timestamp: 1750891558000, probes: {} },
+    { temperature: 28.5, moisture: 70.4, timestamp: 1750891498000, probes: {} },
+    { temperature: 28.5, moisture: 70.2, timestamp: 1750891438000, probes: {} },
+    { temperature: 28.5, moisture: 70.2, timestamp: 1750891378000, probes: {} },
+    { temperature: 28.6, moisture: 69.9, timestamp: 1750891318000, probes: {} },
+    { temperature: 28.5, moisture: 69.9, timestamp: 1750891258000, probes: {} },
+    { temperature: 28.6, moisture: 70, timestamp: 1750891198000, probes: {} },
+    { temperature: 28.6, moisture: 69.9, timestamp: 1750891138000, probes: {} },
+    { temperature: 28.6, moisture: 70, timestamp: 1750891078000, probes: {} },
+    { temperature: 28.6, moisture: 70, timestamp: 1750891018000, probes: {} },
+    { temperature: 28.6, moisture: 69.8, timestamp: 1750890958000, probes: {} },
+    { temperature: 28.5, moisture: 69.9, timestamp: 1750890898000, probes: {} },
+    { temperature: 28.5, moisture: 69.8, timestamp: 1750890838000, probes: {} },
+    { temperature: 28.6, moisture: 70.1, timestamp: 1750890778000, probes: {} },
+    { temperature: 28.6, moisture: 69.6, timestamp: 1750890718000, probes: {} },
+    { temperature: 28.6, moisture: 69.5, timestamp: 1750890658000, probes: {} },
+    { temperature: 28.6, moisture: 69.4, timestamp: 1750890598000, probes: {} },
+    { temperature: 28.6, moisture: 69.5, timestamp: 1750890538000, probes: {} },
+    { temperature: 28.6, moisture: 69.4, timestamp: 1750890478000, probes: {} },
+    { temperature: 28.6, moisture: 69.3, timestamp: 1750890418000, probes: {} },
+    { temperature: 28.6, moisture: 69.3, timestamp: 1750890358000, probes: {} },
+    { temperature: 28.6, moisture: 69.3, timestamp: 1750890298000, probes: {} },
+    { temperature: 28.6, moisture: 69.3, timestamp: 1750890238000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750890178000, probes: {} },
+    { temperature: 28.6, moisture: 69.1, timestamp: 1750890118000, probes: {} },
+    { temperature: 28.6, moisture: 69.1, timestamp: 1750890058000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889998000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889938000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889878000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889818000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889758000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889698000, probes: {} },
+    { temperature: 28.5, moisture: 69.1, timestamp: 1750889638000, probes: {} },
+    { temperature: 28.5, moisture: 69.1, timestamp: 1750889578000, probes: {} },
+    { temperature: 28.5, moisture: 69.2, timestamp: 1750889518000, probes: {} },
+    { temperature: 28.5, moisture: 69.2, timestamp: 1750889458000, probes: {} },
+    { temperature: 28.5, moisture: 69.3, timestamp: 1750889398000, probes: {} },
+    { temperature: 28.5, moisture: 69.1, timestamp: 1750889338000, probes: {} },
+    { temperature: 28.5, moisture: 69.1, timestamp: 1750889278000, probes: {} },
+    { temperature: 28.6, moisture: 69.2, timestamp: 1750889218000, probes: {} },
+    { temperature: 28.6, moisture: 69.5, timestamp: 1750889158000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750889098000, probes: {} },
+    { temperature: 28.6, moisture: 68.9, timestamp: 1750889038000, probes: {} },
+    { temperature: 28.6, moisture: 68.6, timestamp: 1750888978000, probes: {} },
+    { temperature: 28.6, moisture: 68.5, timestamp: 1750888918000, probes: {} },
+    { temperature: 28.6, moisture: 68.4, timestamp: 1750888858000, probes: {} },
+    { temperature: 28.6, moisture: 68.4, timestamp: 1750888798000, probes: {} },
+    { temperature: 28.6, moisture: 68.4, timestamp: 1750888738000, probes: {} },
+    { temperature: 28.6, moisture: 68.3, timestamp: 1750888678000, probes: {} },
+    { temperature: 28.6, moisture: 68.5, timestamp: 1750888618000, probes: {} },
+    { temperature: 28.6, moisture: 68.6, timestamp: 1750888558000, probes: {} },
+    { temperature: 28.6, moisture: 68.7, timestamp: 1750888498000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750888438000, probes: {} },
+    { temperature: 28.6, moisture: 69, timestamp: 1750888378000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750888318000, probes: {} },
+    { temperature: 28.6, moisture: 68.9, timestamp: 1750888258000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750888198000, probes: {} },
+    { temperature: 28.7, moisture: 69, timestamp: 1750888138000, probes: {} },
+    { temperature: 28.7, moisture: 68.8, timestamp: 1750888078000, probes: {} },
+    { temperature: 28.6, moisture: 68.7, timestamp: 1750888018000, probes: {} },
+    { temperature: 28.6, moisture: 68.6, timestamp: 1750887958000, probes: {} },
+    { temperature: 28.6, moisture: 68.6, timestamp: 1750887898000, probes: {} },
+    { temperature: 28.6, moisture: 68.6, timestamp: 1750887838000, probes: {} },
+    { temperature: 28.6, moisture: 68.7, timestamp: 1750887778000, probes: {} },
+    { temperature: 28.6, moisture: 68.9, timestamp: 1750887718000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750887658000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750887598000, probes: {} },
+    { temperature: 28.6, moisture: 69.1, timestamp: 1750887538000, probes: {} },
+    { temperature: 28.6, moisture: 69, timestamp: 1750887478000, probes: {} },
+    { temperature: 28.6, moisture: 68.8, timestamp: 1750887418000, probes: {} },
+    { temperature: 28.6, moisture: 68.9, timestamp: 1750887358000, probes: {} },
+    { temperature: 28.6, moisture: 69.1, timestamp: 1750887298000, probes: {} },
+    { temperature: 28.6, moisture: 68.9, timestamp: 1750887238000, probes: {} },
+    { temperature: 28.6, moisture: 69, timestamp: 1750887178000, probes: {} },
+    { temperature: 28.7, moisture: 68.8, timestamp: 1750887118000, probes: {} },
+    { temperature: 28.7, moisture: 68.4, timestamp: 1750887058000, probes: {} },
+    { temperature: 28.8, moisture: 68.3, timestamp: 1750886998000, probes: {} },
+    { temperature: 28.8, moisture: 68.2, timestamp: 1750886938000, probes: {} },
+    { temperature: 28.8, moisture: 67.8, timestamp: 1750886878000, probes: {} },
+    { temperature: 28.9, moisture: 68, timestamp: 1750886818000, probes: {} },
+    { temperature: 28.9, moisture: 67.7, timestamp: 1750886758000, probes: {} },
+    { temperature: 28.9, moisture: 67.4, timestamp: 1750886698000, probes: {} },
+    { temperature: 28.9, moisture: 67.2, timestamp: 1750886638000, probes: {} },
+    { temperature: 29, moisture: 67.3, timestamp: 1750886578000, probes: {} },
+    { temperature: 29, moisture: 67, timestamp: 1750886518000, probes: {} },
+    { temperature: 29, moisture: 67, timestamp: 1750886458000, probes: {} },
+    { temperature: 29, moisture: 66.9, timestamp: 1750886398000, probes: {} },
+    { temperature: 29, moisture: 66.9, timestamp: 1750886338000, probes: {} },
+    { temperature: 29.1, moisture: 66.9, timestamp: 1750886278000, probes: {} },
+    { temperature: 29.1, moisture: 66.9, timestamp: 1750886218000, probes: {} },
+    { temperature: 29.2, moisture: 66.8, timestamp: 1750886158000, probes: {} },
+    { temperature: 29.2, moisture: 66.7, timestamp: 1750886098000, probes: {} },
+    { temperature: 29.3, moisture: 66.6, timestamp: 1750886038000, probes: {} },
+    { temperature: 29.3, moisture: 66.5, timestamp: 1750885978000, probes: {} },
+    { temperature: 29.3, moisture: 66.3, timestamp: 1750885918000, probes: {} },
+    { temperature: 29.4, moisture: 66.2, timestamp: 1750885858000, probes: {} },
+    { temperature: 29.5, moisture: 66.2, timestamp: 1750885798000, probes: {} },
+    { temperature: 29.5, moisture: 66, timestamp: 1750885738000, probes: {} },
+    { temperature: 29.6, moisture: 65.9, timestamp: 1750885678000, probes: {} },
+    { temperature: 29.7, moisture: 65.7, timestamp: 1750885618000, probes: {} },
+    { temperature: 29.8, moisture: 65.6, timestamp: 1750885558000, probes: {} },
+    { temperature: 30, moisture: 65.4, timestamp: 1750885498000, probes: {} },
+    { temperature: 30.1, moisture: 65.2, timestamp: 1750885438000, probes: {} },
+    { temperature: 30.2, moisture: 64.9, timestamp: 1750885378000, probes: {} },
+    { temperature: 30.4, moisture: 64.7, timestamp: 1750885318000, probes: {} },
+    { temperature: 30.6, moisture: 64.4, timestamp: 1750885258000, probes: {} },
+    { temperature: 30.8, moisture: 64.2, timestamp: 1750885198000, probes: {} },
+    { temperature: 31.1, moisture: 64.2, timestamp: 1750885138000, probes: {} },
+    { temperature: 31.1, moisture: 65, timestamp: 1750885078000, probes: {} },
+    {
+      temperature: 31.1,
+      moisture: 64.6,
+      timestamp: 1750885018000,
+      probes: {
+        '0': {
+          temperature: 8,
+          moisture: 32.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 31,
+      moisture: 64.6,
+      timestamp: 1750884958000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 33.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 31,
+      moisture: 64.7,
+      timestamp: 1750884898000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 34,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 31,
+      moisture: 64.7,
+      timestamp: 1750884838000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 34.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 31,
+      moisture: 64.9,
+      timestamp: 1750884778000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 35.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.9,
+      moisture: 64.9,
+      timestamp: 1750884718000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 35.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.9,
+      moisture: 65,
+      timestamp: 1750884658000,
+      probes: {
+        '0': {
+          temperature: 8.2,
+          moisture: 36.7,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.9,
+      moisture: 65.2,
+      timestamp: 1750884598000,
+      probes: {
+        '0': {
+          temperature: 8.2,
+          moisture: 38.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.8,
+      moisture: 65.2,
+      timestamp: 1750884538000,
+      probes: {
+        '0': {
+          temperature: 8.2,
+          moisture: 39.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.8,
+      moisture: 65.3,
+      timestamp: 1750884478000,
+      probes: {
+        '0': {
+          temperature: 8.3,
+          moisture: 40.7,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.8,
+      moisture: 65.5,
+      timestamp: 1750884418000,
+      probes: {
+        '0': {
+          temperature: 8.3,
+          moisture: 42.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.7,
+      moisture: 65.6,
+      timestamp: 1750884358000,
+      probes: {
+        '0': {
+          temperature: 8.3,
+          moisture: 43.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.7,
+      moisture: 65.7,
+      timestamp: 1750884298000,
+      probes: {
+        '0': {
+          temperature: 8.3,
+          moisture: 45.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.6,
+      moisture: 65.9,
+      timestamp: 1750884238000,
+      probes: {
+        '0': {
+          temperature: 8.4,
+          moisture: 47.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.6,
+      moisture: 66,
+      timestamp: 1750884178000,
+      probes: {
+        '0': {
+          temperature: 8.5,
+          moisture: 49.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.5,
+      moisture: 66.1,
+      timestamp: 1750884118000,
+      probes: {
+        '0': {
+          temperature: 8.5,
+          moisture: 53,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.4,
+      moisture: 66.2,
+      timestamp: 1750884058000,
+      probes: {
+        '0': {
+          temperature: 8.6,
+          moisture: 55.3,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.4,
+      moisture: 66.4,
+      timestamp: 1750883998000,
+      probes: {
+        '0': {
+          temperature: 8.8,
+          moisture: 58.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.3,
+      moisture: 66.6,
+      timestamp: 1750883938000,
+      probes: {
+        '0': {
+          temperature: 9,
+          moisture: 61.7,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.3,
+      moisture: 66.7,
+      timestamp: 1750883878000,
+      probes: {
+        '0': {
+          temperature: 9.3,
+          moisture: 63.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.2,
+      moisture: 66.8,
+      timestamp: 1750883818000,
+      probes: {
+        '0': {
+          temperature: 9.8,
+          moisture: 68.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.1,
+      moisture: 67.1,
+      timestamp: 1750883758000,
+      probes: {
+        '0': {
+          temperature: 10.5,
+          moisture: 70,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30.1,
+      moisture: 67.3,
+      timestamp: 1750883698000,
+      probes: {
+        '0': {
+          temperature: 11.4,
+          moisture: 69.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30,
+      moisture: 67.6,
+      timestamp: 1750883638000,
+      probes: {
+        '0': {
+          temperature: 12.9,
+          moisture: 66.3,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.9,
+      moisture: 68.1,
+      timestamp: 1750883578000,
+      probes: {
+        '0': {
+          temperature: 15.5,
+          moisture: 59.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.8,
+      moisture: 69,
+      timestamp: 1750883518000,
+      probes: {
+        '0': {
+          temperature: 20.2,
+          moisture: 49.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.6,
+      moisture: 72.1,
+      timestamp: 1750883458000,
+      probes: {
+        '0': {
+          temperature: 28.1,
+          moisture: 49.7,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    { temperature: 29.2, moisture: 77.3, timestamp: 1750883398000, probes: {} },
+    { temperature: 28.8, moisture: 68.2, timestamp: 1750883338000, probes: {} },
+    { temperature: 28.8, moisture: 68.2, timestamp: 1750883278000, probes: {} },
+    { temperature: 28.8, moisture: 68.2, timestamp: 1750883218000, probes: {} },
+    { temperature: 28.9, moisture: 68.3, timestamp: 1750883158000, probes: {} },
+    { temperature: 28.8, moisture: 68.1, timestamp: 1750883098000, probes: {} },
+    { temperature: 28.9, moisture: 68.2, timestamp: 1750883038000, probes: {} },
+    { temperature: 28.9, moisture: 68.5, timestamp: 1750882978000, probes: {} },
+    { temperature: 28.9, moisture: 69.3, timestamp: 1750882918000, probes: {} },
+    { temperature: 28.8, moisture: 69.1, timestamp: 1750882858000, probes: {} },
+    {
+      temperature: 28.8,
+      moisture: 67.8,
+      timestamp: 1750882798000,
+      probes: {
+        '0': {
+          temperature: -12.8,
+          moisture: 71.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.8,
+      timestamp: 1750882738000,
+      probes: {
+        '0': {
+          temperature: -12.7,
+          moisture: 71.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.8,
+      moisture: 67.7,
+      timestamp: 1750882678000,
+      probes: {
+        '0': {
+          temperature: -12.6,
+          moisture: 71.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.7,
+      timestamp: 1750882618000,
+      probes: {
+        '0': {
+          temperature: -12.6,
+          moisture: 72,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.7,
+      timestamp: 1750882558000,
+      probes: {
+        '0': {
+          temperature: -12.5,
+          moisture: 72,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.6,
+      timestamp: 1750882498000,
+      probes: {
+        '0': {
+          temperature: -12.4,
+          moisture: 71.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.4,
+      timestamp: 1750882438000,
+      probes: {
+        '0': {
+          temperature: -12.3,
+          moisture: 71.9,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.2,
+      timestamp: 1750882378000,
+      probes: {
+        '0': {
+          temperature: -12.2,
+          moisture: 71.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29,
+      moisture: 67.5,
+      timestamp: 1750882318000,
+      probes: {
+        '0': {
+          temperature: -12.1,
+          moisture: 70.7,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29,
+      moisture: 67.4,
+      timestamp: 1750882258000,
+      probes: {
+        '0': {
+          temperature: -12,
+          moisture: 70.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.1,
+      moisture: 67.2,
+      timestamp: 1750882198000,
+      probes: {
+        '0': {
+          temperature: -11.8,
+          moisture: 69.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.1,
+      moisture: 67.1,
+      timestamp: 1750882138000,
+      probes: {
+        '0': {
+          temperature: -11.4,
+          moisture: 67.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.2,
+      moisture: 67,
+      timestamp: 1750882078000,
+      probes: {
+        '0': {
+          temperature: -10.5,
+          moisture: 63.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.2,
+      moisture: 67,
+      timestamp: 1750882018000,
+      probes: {
+        '0': {
+          temperature: -8.4,
+          moisture: 55.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.3,
+      moisture: 67.1,
+      timestamp: 1750881958000,
+      probes: {
+        '0': {
+          temperature: -2.3,
+          moisture: 40.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.2,
+      moisture: 68.2,
+      timestamp: 1750881898000,
+      probes: {
+        '0': {
+          temperature: 14.4,
+          moisture: 25.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 68.9,
+      timestamp: 1750881838000,
+      probes: {
+        '0': {
+          temperature: 29.1,
+          moisture: 69.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    { temperature: 28.9, moisture: 67.8, timestamp: 1750881778000, probes: {} },
+    { temperature: 28.9, moisture: 67.9, timestamp: 1750881718000, probes: {} },
+    { temperature: 28.9, moisture: 67.9, timestamp: 1750881658000, probes: {} },
+    { temperature: 28.9, moisture: 67.9, timestamp: 1750881598000, probes: {} },
+    { temperature: 28.9, moisture: 67.8, timestamp: 1750881538000, probes: {} },
+    { temperature: 28.9, moisture: 67.8, timestamp: 1750881478000, probes: {} },
+    { temperature: 28.9, moisture: 67.8, timestamp: 1750881418000, probes: {} },
+    { temperature: 29, moisture: 67.9, timestamp: 1750881358000, probes: {} },
+    { temperature: 28.9, moisture: 67.9, timestamp: 1750881298000, probes: {} },
+    { temperature: 29, moisture: 67.9, timestamp: 1750881238000, probes: {} },
+    { temperature: 29, moisture: 67.9, timestamp: 1750881178000, probes: {} },
+    { temperature: 29, moisture: 68, timestamp: 1750881118000, probes: {} },
+    { temperature: 29, moisture: 68.1, timestamp: 1750881058000, probes: {} },
+    { temperature: 29, moisture: 68.1, timestamp: 1750880998000, probes: {} },
+    { temperature: 29, moisture: 68.1, timestamp: 1750880938000, probes: {} },
+    { temperature: 29, moisture: 68.1, timestamp: 1750880878000, probes: {} },
+    { temperature: 29, moisture: 68.2, timestamp: 1750880818000, probes: {} },
+    { temperature: 29, moisture: 68.2, timestamp: 1750880758000, probes: {} },
+    { temperature: 29, moisture: 68.2, timestamp: 1750880698000, probes: {} },
+    { temperature: 28.9, moisture: 68.7, timestamp: 1750880638000, probes: {} },
+    { temperature: 28.8, moisture: 69.4, timestamp: 1750880578000, probes: {} },
+    {
+      temperature: 28.8,
+      moisture: 68,
+      timestamp: 1750880518000,
+      probes: {
+        '0': {
+          temperature: -9.2,
+          moisture: 81.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.9,
+      timestamp: 1750880458000,
+      probes: {
+        '0': {
+          temperature: -8.9,
+          moisture: 81.2,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.8,
+      timestamp: 1750880398000,
+      probes: {
+        '0': {
+          temperature: -8.6,
+          moisture: 81.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.8,
+      timestamp: 1750880338000,
+      probes: {
+        '0': {
+          temperature: -8.3,
+          moisture: 81.1,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 28.9,
+      moisture: 67.6,
+      timestamp: 1750880278000,
+      probes: {
+        '0': {
+          temperature: -7.9,
+          moisture: 81,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29,
+      moisture: 67.6,
+      timestamp: 1750880218000,
+      probes: {
+        '0': {
+          temperature: -7.5,
+          moisture: 80.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29,
+      moisture: 67.4,
+      timestamp: 1750880158000,
+      probes: {
+        '0': {
+          temperature: -7.1,
+          moisture: 80.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29,
+      moisture: 67.3,
+      timestamp: 1750880098000,
+      probes: {
+        '0': {
+          temperature: -6.7,
+          moisture: 80.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.1,
+      moisture: 67.3,
+      timestamp: 1750880038000,
+      probes: {
+        '0': {
+          temperature: -6.2,
+          moisture: 80,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.2,
+      moisture: 67.2,
+      timestamp: 1750879978000,
+      probes: {
+        '0': {
+          temperature: -5.7,
+          moisture: 79.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.2,
+      moisture: 67,
+      timestamp: 1750879918000,
+      probes: {
+        '0': {
+          temperature: -5.2,
+          moisture: 78.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.3,
+      moisture: 66.9,
+      timestamp: 1750879858000,
+      probes: {
+        '0': {
+          temperature: -4.6,
+          moisture: 77.6,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.4,
+      moisture: 66.8,
+      timestamp: 1750879798000,
+      probes: {
+        '0': {
+          temperature: -3.8,
+          moisture: 75.8,
+          luminosity: null,
+          vibration: null,
+        },
+        '1': {
+          temperature: 4.8,
+          moisture: 45.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.5,
+      moisture: 66.8,
+      timestamp: 1750879738000,
+      probes: {
+        '0': {
+          temperature: -2.8,
+          moisture: 72.4,
+          luminosity: null,
+          vibration: null,
+        },
+        '1': {
+          temperature: -1.8,
+          moisture: 52.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.6,
+      moisture: 66.6,
+      timestamp: 1750879678000,
+      probes: {
+        '0': {
+          temperature: -0.9,
+          moisture: 67.5,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.8,
+      moisture: 66.3,
+      timestamp: 1750879618000,
+      probes: {
+        '0': {
+          temperature: 2.6,
+          moisture: 59.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 29.9,
+      moisture: 66.3,
+      timestamp: 1750879558000,
+      probes: {
+        '0': {
+          temperature: 8.1,
+          moisture: 46.8,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+    {
+      temperature: 30,
+      moisture: 66.5,
+      timestamp: 1750879498000,
+      probes: {
+        '0': {
+          temperature: 12.8,
+          moisture: 41.4,
+          luminosity: null,
+          vibration: null,
+        },
+      },
+    },
+  ],
+  page: 1,
+  size: 500,
+  total: 215,
+  totalPages: 1,
+  hasNextPage: false,
+  hasPreviousPage: false,
+};

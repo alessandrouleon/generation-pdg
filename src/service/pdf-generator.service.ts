@@ -2,31 +2,26 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 import { chromium } from 'playwright';
-import { dataPoints } from '../dataPoints';
-import { datapointData } from '../datapointData';
+import { DataPoint, dataPoints } from '../dataPoints';
 import { ChartService } from './chart.service';
 import { MapService } from './map.service';
 
 @Injectable()
 export class PdfGeneratorService {
-
   constructor(
     private readonly mapService: MapService,
-    private readonly chartService: ChartService
+    private readonly chartService: ChartService,
   ) {}
 
   async generatePdf(): Promise<Buffer> {
-
     // Caminho absoluto do logo
     const logoPath = path.join(process.cwd(), 'src/assets/pharmalog-logo.svg');
     const logoBase64 = fs.readFileSync(logoPath, { encoding: 'base64' });
     const logoDataUrl = `data:image/svg+xml;base64,${logoBase64}`;
 
-    const dataPointData = datapointData;
-
     // Constrói as linhas da tabela dinamicamente
     const tableRows = dataPoints.data
-      .map((point: any) => {
+      .map((point: DataPoint) => {
         const date = new Date(point.timestamp);
         const formattedDate = date.toLocaleString('pt-BR', {
           timeZone: 'America/Manaus',
@@ -44,8 +39,12 @@ export class PdfGeneratorService {
       .join('');
 
     // Gera imagem do mapa
-    const chartImageBase64 = await this.chartService.generateChartImage(dataPoints.data);
-    const mapImageBase64 = await this.mapService.generateMapImage(dataPoints.data);
+    const chartImageBase64 = await this.chartService.generateChartImage(
+      dataPoints.data,
+    );
+    const mapImageBase64 = await this.mapService.generateMapImage(
+      dataPoints.data,
+    );
 
     const htmlContent = `
   <html>

@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { chromium } from 'playwright';
+import { DataPoint } from 'src/dataPoints';
 
 @Injectable()
 export class ChartService {
-  async generateChartImage(dataPoints: any[]): Promise<string> {
+  async generateChartImage(dataPoints: DataPoint[]): Promise<string> {
     // Cria labels espaçados dinamicamente
-    const allLabels = dataPoints.map(dp => {
+    const allLabels = dataPoints.map((dp) => {
       const date = new Date(dp.timestamp);
-      return `${date.getDate()}/${date.getMonth()+1} - ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
+      return `${date.getDate()}/${date.getMonth() + 1} - ${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
     });
 
     // Calcula o intervalo para mostrar labels espaçados
@@ -22,8 +23,8 @@ export class ChartService {
       return index % labelInterval === 0 ? label : '';
     });
 
-    const temperatureData = dataPoints.map(dp => dp.temperature || 0);
-    const moistureData = dataPoints.map(dp => dp.moisture || 0);
+    const temperatureData = dataPoints.map((dp) => dp.temperature || 0);
+    const moistureData = dataPoints.map((dp) => dp.moisture || 0);
 
     // Limites que você quer mostrar no gráfico
     const TEMP_MAX = 29;
@@ -214,13 +215,13 @@ export class ChartService {
     const browser = await chromium.launch();
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
-    
+
     // Aguarda um pouco para garantir que o chart seja renderizado
     await page.waitForTimeout(1000);
 
-    const chartBase64 = await page.screenshot({ 
+    const chartBase64 = await page.screenshot({
       type: 'png',
-      fullPage: false
+      fullPage: false,
     });
     await browser.close();
 

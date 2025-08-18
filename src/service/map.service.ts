@@ -9,15 +9,18 @@ interface DataPoint {
 
 @Injectable()
 export class MapService {
-  private isValidPoint(p: any): p is DataPoint {
+  private isValidPoint = (p: unknown): p is DataPoint => {
+    if (typeof p !== 'object' || p === null) return false;
+
+    const point = p as Partial<DataPoint>;
+
     return (
-      p?.geo &&
-      typeof p.geo.lat === 'number' &&
-      typeof p.geo.lng === 'number' &&
-      !isNaN(p.geo.lat) &&
-      !isNaN(p.geo.lng)
+      typeof point.geo?.lat === 'number' &&
+      typeof point.geo?.lng === 'number' &&
+      !isNaN(point.geo.lat) &&
+      !isNaN(point.geo.lng)
     );
-  }
+  };
 
   private buildMarkersJs(points: DataPoint[]): string {
     return points
@@ -28,16 +31,15 @@ export class MapService {
               .addTo(map)
               .bindPopup("Ponto ${i + 1}<br>Temp: ${p.temperature ?? 'N/A'}°C<br>Umid: ${p.moisture ?? 'N/A'}%")
           );
-        `
+        `,
       )
       .join('\n');
   }
-  
 
   private buildHtml(points: DataPoint[], markersJs: string): string {
     const centerLat = points.reduce((s, p) => s + p.geo.lat, 0) / points.length;
     const centerLng = points.reduce((s, p) => s + p.geo.lng, 0) / points.length;
-  
+
     return `
       <!DOCTYPE html>
       <html>
